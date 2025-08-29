@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLUE MOON Restaurant</title>
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>BLUE MOON RESTAURANT</header>
+
+  <!-- Cake Menu -->
+  <div class="cake-container">
+    <div class="cake-item">
+      <img src="https://img.freepik.com/premium-photo/piece-rainbow-cake-is-plate_616001-3977.jpg" alt="Rainbow Cake">
+      <p>Rainbow Cake – Rs. 300</p>
+    </div>
+    <div class="cake-item">
+      <img src="https://img.freepik.com/premium-photo/chocolate-cake-with-bonbon_1032986-185.jpg" alt="Chocolate Cake">
+      <p>Chocolate Cake – Rs. 500</p>
+    </div>
+    <div class="cake-item">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.pGsvtTX4rnBmKglBxamUCwHaE5?cb=thfvnext&w=1812&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Red Velvet Cake">
+      <p>Red Velvet Cake – Rs. 800</p>
+    </div>
+    <div class="cake-item">
+      <img src="https://c1.wallpaperflare.com/preview/528/445/287/pie-chocolate-brigadier-cake.jpg" alt="Kitkat Cake">
+      <p>KitKat Cake – Rs. 600</p>
+    </div>
+    <div class="cake-item">
+      <img src="https://wallpaperscute.com/wp-content/uploads/2020/07/HD-Cake-Backgrounds.jpg" alt="Fruit Cake">
+      <p>Fruit Cake – Rs. 750</p>
+    </div>
+  </div>
+
+  <!-- Order Form -->
+  <h2>Order Cake</h2>
+  <div class="order-box">
+    <label>Rainbow Cake (Quantity)</label>
+    <input type="number" id="rainbow" value="0" min="0">
+
+    <label>Chocolate Cake (Quantity)</label>
+    <input type="number" id="chocolate" value="0" min="0">
+
+    <label>Red Velvet Cake (Quantity)</label>
+    <input type="number" id="redvelvet" value="0" min="0">
+
+    <label>KitKat Cake (Quantity)</label>
+    <input type="number" id="kitkat" value="0" min="0">
+
+    <label>Fruit Cake (Quantity)</label>
+    <input type="number" id="fruit" value="0" min="0">
+
+    <button onclick="calculateBill()">Place Order</button>
+
+    <div id="bill"></div>
+  </div>
+
+  <script>
+    function calculateBill() {
+      let rainbow = parseInt(document.getElementById("rainbow").value) || 0;
+      let chocolate = parseInt(document.getElementById("chocolate").value) || 0;
+      let redvelvet = parseInt(document.getElementById("redvelvet").value) || 0;
+      let kitkat = parseInt(document.getElementById("kitkat").value) || 0;
+      let fruit = parseInt(document.getElementById("fruit").value) || 0;
+
+      // Prices
+      let rainbowPrice = 300;
+      let chocolatePrice = 500;
+      let redvelvetPrice = 800;
+      let kitkatPrice = 600;
+      let fruitPrice = 750;
+
+      let total = (rainbow * rainbowPrice) +
+                  (chocolate * chocolatePrice) +
+                  (redvelvet * redvelvetPrice) +
+                  (kitkat * kitkatPrice) +
+                  (fruit * fruitPrice);
+
+      if(total > 0) {
+        document.getElementById("bill").innerHTML = 
+          "<p style='color:black;'>Purchase Order Bill!!!</p><p>Total Price: Rs. " + total + "</p>";
+      } else {
+        document.getElementById("bill").innerHTML = "<p style='color:red;'>No items selected!</p>";
+      }
+    }
+  </script>
+
+</body>
+</html>
